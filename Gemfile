@@ -31,4 +31,5 @@ end
 
 gem 'bcrypt'
 gem 'hirb'
+gem 'material_icons'
 gem 'slim-rails'

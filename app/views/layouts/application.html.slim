@@ -8,4 +8,29 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    / = link_to  "Home", root_path 
+    / = link_to  "Courses", courses_path
+    / = link_to  "About", about_path
+    ul#dropdown1.dropdown-content
+      li
+        a href="#!"  one
+      li
+        a href="#!"  two
+      li.divider
+      li
+        a href="#!"  three
+    nav
+      .nav-wrapper
+        a.brand-logo href="#!"  Logo
+        ul.right.hide-on-med-and-down
+          li
+            a href="sass.html"  Sass
+          li
+            a href="badges.html"  Components
+          /! Dropdown Trigger
+          li
+            a.dropdown-trigger data-target="dropdown1" href="#!" 
+              | Dropdown
+              i.material-icons.right arrow_drop_down
+
     = yield
