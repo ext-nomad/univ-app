@@ -1,0 +1,38 @@
+
+ul#dropdown1.dropdown-content
+  li
+    a href="#!"  one
+  li
+    a href="#!"  two
+  / li.divider
+  li
+    a href="#!"  three
+
+ul#mobile-demo.sidenav
+  li
+    a href="sass.html"  Sass
+  li
+    a href="badges.html"  Components
+  li
+    a href="collapsible.html"  Javascript
+  li
+    a href="mobile.html"  Mobile
+
+.navbar-fixed
+  nav
+    .nav-wrapper.teal.darken-1
+      .container
+        = link_to root_path, class: 'brand-logo' do
+          i.mi.medium filter_drama
+          | University
+        a.sidenav-trigger data-target="mobile-demo" href="#" 
+          i.mi menu
+        ul.right.hide-on-med-and-down
+          li
+            = link_to  "About", about_path
+          li
+            = link_to  "Courses", courses_path
+          li
+            a.dropdown-trigger data-target="dropdown1" href="#!" 
+              | Profile
+              i.material-icons.right arrow_drop_down
