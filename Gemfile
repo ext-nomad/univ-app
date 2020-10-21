@@ -30,6 +30,7 @@ group :test do
 end
 
 gem 'bcrypt'
+gem 'faker'
 gem 'hirb'
 gem 'material_icons'
 gem 'slim-rails'
