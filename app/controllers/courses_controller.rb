@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   def index
+    require_user
     @courses = Course.all
   end
 

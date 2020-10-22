@@ -13,6 +13,9 @@ html
 
     main
       .container
+        - flash.each do |name, msg|
+          = javascript_tag "M.toast({html: '#{msg}', classes: 'rounded #{name.to_s == 'notice' ? 'green' : 'red'}'})"
+
         = yield
 
     footer
