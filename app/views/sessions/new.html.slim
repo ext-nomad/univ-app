@@ -1,0 +1,25 @@
+h1.center Login
+.row
+  .col.s12.l8.offset-l2
+    .z-depth-2
+      = form_with(scope: :session, url: login_path) do |f|
+        .card.horizontal.blue-grey.darken-1
+          .card-stacked
+            .card-content.white-text
+              .row
+                form.col.s12
+                  .input-field.col.s6
+                    / label for="email"  Email
+                    /input#email.validate type="email"
+                    = f.label :email
+                    = f.text_field :email, class: 'email validate', type: 'email'
+
+                  .input-field.col.s6
+                    / label for="password"  Password
+                    / input#password.validate type="password"
+                    = f.label :password
+                    = f.password_field :password, class: 'password validate', type: 'password'
+              .center
+                = link_to  "Leave", root_path, class: 'btn'
+                |   
+                = f.submit 'Log In', class: 'btn'

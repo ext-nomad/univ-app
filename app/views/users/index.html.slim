@@ -1,2 +1,14 @@
-h1 Users#index
-p Find me in app/views/users/index.html.slim
+h1.center Students listing
+
+.row
+  table.highlight.responsive-table
+    thead
+      tr
+        th ID
+        th Name
+        th Course enrollments
+        th Joined
+    tbody
+      - @users.each do |user|
+        = render 'users/user', user: user
+

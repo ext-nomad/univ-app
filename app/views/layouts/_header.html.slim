@@ -1,29 +1,35 @@
 
 ul#dropdown1.dropdown-content
-  li
-    a href="#!"  one
-  li
-    a href="#!"  two
-  / li.divider
-  li
-    a href="#!"  three
+  - if logged_in?
+    li
+      = link_to  "Edit profile", users_path(current_user)
+    li
+      = link_to  "LogOut", logout_path, method: :delete
+  - else
+    li
+      = link_to  "SignUp", signup_path
+    li
+      = link_to  "LogIn", login_path
 
 ul#dropdown2.dropdown-content
-  li
-    a href="#!"  one
-  li
-    a href="#!"  two
-  / li.divider
-  li
-    a href="#!"  three
+  - if logged_in?
+    li
+      = link_to  "Edit profile", users_path(current_user)
+    li
+      = link_to  "LogOut", logout_path, method: :delete
+  - else
+    li
+      = link_to  "SignUp", signup_path
+    li
+      = link_to  "LogIn", login_path
 
 ul#mobile-demo.sidenav
   li
-    a href="sass.html"  Sass
+    = link_to  "About", about_path
   li
-    a href="badges.html"  Components
+    = link_to  "Students", users_path
   li
-    a href="collapsible.html"  Javascript
+    = link_to  "Courses", courses_path
   li
     a.dropdown-trigger data-target="dropdown2" href="#!" 
       | Profile
@@ -41,6 +47,8 @@ ul#mobile-demo.sidenav
         ul.right.hide-on-med-and-down
           li
             = link_to  "About", about_path
+          li
+            = link_to  "Students", users_path
           li
             = link_to  "Courses", courses_path
           li
