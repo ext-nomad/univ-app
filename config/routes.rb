@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :courses
-  resources :users, except: %i[new destroy]
+  resources :users, except: %i[new show destroy]
 end

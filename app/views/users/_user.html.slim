@@ -1,5 +1,6 @@
     tr
       td= user.id
-      td= link_to user.name, user_path(user)
+      td 
+        strong= user.name
       td None
       td= user.created_at.strftime('%m/%d/%Y')

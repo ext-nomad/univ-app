@@ -2,14 +2,15 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by(email: params[:session][:email])
-
-    if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
-      redirect_to courses_path, notice: 'Logged in successfully'
+    if (user = User.find_by(email: params[:session][:email]))
+      if user.authenticate(params[:session][:password])
+        session[:user_id] = user.id
+        redirect_to courses_path, notice: 'Logged in successfully'
+      else
+        redirect_to login_path, alert: 'Wrong password'
+      end
     else
-      flash.now[:alert] = 'There was something wrong'
-      render 'new'
+      redirect_to login_path, alert: 'Wrong email'
     end
   end
 

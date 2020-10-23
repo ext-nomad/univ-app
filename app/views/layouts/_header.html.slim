@@ -2,19 +2,7 @@
 ul#dropdown1.dropdown-content
   - if logged_in?
     li
-      = link_to  "Edit profile", users_path(current_user)
-    li
-      = link_to  "LogOut", logout_path, method: :delete
-  - else
-    li
-      = link_to  "SignUp", signup_path
-    li
-      = link_to  "LogIn", login_path
-
-ul#dropdown2.dropdown-content
-  - if logged_in?
-    li
-      = link_to  "Edit profile", users_path(current_user)
+      = link_to  "Edit profile", edit_user_path(current_user)
     li
       = link_to  "LogOut", logout_path, method: :delete
   - else
@@ -30,10 +18,17 @@ ul#mobile-demo.sidenav
     = link_to  "Students", users_path
   li
     = link_to  "Courses", courses_path
-  li
-    a.dropdown-trigger data-target="dropdown2" href="#!" 
-      | Profile
-      i.material-icons.right arrow_drop_down
+  .divider
+  - if logged_in?
+    li
+      = link_to  "Edit profile", edit_user_path(current_user)
+    li
+      = link_to  "LogOut", logout_path, method: :delete
+  - else
+    li
+      = link_to  "SignUp", signup_path
+    li
+      = link_to  "LogIn", login_path
 
 .navbar-fixed
   nav

@@ -1,0 +1,34 @@
+.row
+  .col.s12.l8.offset-l2
+    .z-depth-2
+      .card-panel.blue-grey.darken-1
+        .row.center
+          = form_with(model: user, html: { class: 'col s12'}, local: true) do |f|
+            .row
+
+              .input-field.col.s6
+                = f.text_field :name, class: 'name'
+                = f.label :name
+                span.helper-text data-error="#{name_errors}"
+              .input-field.col.s6
+                = f.text_field :email, class: 'email'
+                = f.label :email
+                span.helper-text data-error="#{email_errors}"
+            .row
+              .input-field.col.s12
+                = f.password_field :password, class: 'password'
+                = f.label :password
+                span.helper-text data-error="#{password_errors}"
+            = link_to  "Leave", root_path, class: 'btn'
+            |   
+            = f.submit 'Submit', class: 'btn'
+
+- if user.errors.messages[:name].any?
+  javascript:
+    document.querySelector(".name").classList.toggle("invalid");
+- if user.errors.messages[:email].any?
+  javascript:
+    document.querySelector(".email").classList.toggle("invalid");
+- if user.errors.messages[:password].any?
+  javascript:
+    document.querySelector(".password").classList.toggle("invalid");

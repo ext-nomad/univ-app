@@ -1,0 +1,4 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    javascript:
+      M.toast({html: "#{msg}", classes: "rounded #{name.to_s == 'notice' ? 'green' : 'red'} lighten-1"})
