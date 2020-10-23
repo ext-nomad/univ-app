@@ -3,7 +3,9 @@
     .row.valign-wrapper
       .col.l6.s12
         h5.white-text Powered by Rails 6
-        / p.grey-text.text-lighten-4 University application envelope material design.
+        - if current_page?(root_path) || current_page?(login_path) || current_page?(signup_path)
+          p.grey-text.text-lighten-4
+            strong For testing purpose You don't need actually register a new account. Login form prefilled by default.
       .col.l4.offset-l2.s12
         h5.white-text Links
         ul

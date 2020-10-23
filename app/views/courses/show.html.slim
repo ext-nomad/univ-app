@@ -1,2 +1,18 @@
-h1 Courses#show
-p Find me in app/views/courses/show.html.slim
+h1.center Course info
+br
+br
+br
+.row
+  .col.s12.l8.offset-l2
+    .z-depth-3
+      .card.blue-grey.darken-1
+        .card-content.white-text
+          span.card-title
+            = @course.name
+            .right
+              = "[#{@course.short_name.split(' ').last}]"
+          p
+            = @course.description
+        .card-action
+          = link_to  "Back", courses_path 
+          = link_to  "Enroll", course_path(@course) 

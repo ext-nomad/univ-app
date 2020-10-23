@@ -3,7 +3,7 @@ ul#dropdown1.dropdown-content
   - if logged_in?
     li
       = link_to  "Edit profile", edit_user_path(current_user)
-    li
+    li 
       = link_to  "LogOut", logout_path, method: :delete
   - else
     li
@@ -12,11 +12,11 @@ ul#dropdown1.dropdown-content
       = link_to  "LogIn", login_path
 
 ul#mobile-demo.sidenav
-  li
+  li class="#{'active' if current_page?(about_path)}"
     = link_to  "About", about_path
-  li
+  li class="#{'active' if current_page?(users_path)}"
     = link_to  "Students", users_path
-  li
+  li class="#{'active' if current_page?(courses_path)}"
     = link_to  "Courses", courses_path
   .divider
   - if logged_in?
@@ -40,13 +40,16 @@ ul#mobile-demo.sidenav
         a.sidenav-trigger data-target="mobile-demo" href="#" 
           i.mi menu
         ul.right.hide-on-med-and-down
-          li
+          li class="#{'active' if current_page?(about_path)}"
             = link_to  "About", about_path
-          li
+          li class="#{'active' if current_page?(users_path)}"
             = link_to  "Students", users_path
-          li
+          li class="#{'active' if current_page?(courses_path)}"
             = link_to  "Courses", courses_path
           li
-            a.dropdown-trigger data-target="dropdown1" href="#!" 
-              | Profile
+            a.dropdown-trigger data-target="dropdown1" href="#!"
+              - if logged_in?
+                strong= "[#{current_user.name}]"
+              - else
+                | Profile
               i.material-icons.right arrow_drop_down

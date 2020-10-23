@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :courses
+  resources :courses, only: %i[index show]
   resources :users, except: %i[new show destroy]
 end

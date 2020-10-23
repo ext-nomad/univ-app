@@ -1,3 +1,6 @@
+br
+br
+br
 h1.center Login
 .row
   .col.s12.l8.offset-l2
@@ -14,6 +17,6 @@ h1.center Login
             = link_to  "Leave", root_path, class: 'btn'
             |   
             = f.submit 'Log In', class: 'btn'
-
+    .center= link_to  "[Create new account]", signup_path 
 javascript:
   M.updateTextFields();

@@ -1,1 +1,17 @@
-h1.center Home
+br
+br
+.z-depth-5
+  .card-panel
+    h1.center.teal-text.darken-1
+      | Welcome to
+      br
+      | #TechUniversity
+      br
+      | website
+    h5.center to continue You need to
+    h3.center
+      = link_to  "Login", login_path, class: 'btn-large z-depth-3'
+      .row
+      | or
+      .row
+      = link_to  "Register", signup_path, class: 'btn-large z-depth-3'

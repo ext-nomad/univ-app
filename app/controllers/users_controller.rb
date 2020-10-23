@@ -6,8 +6,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # def show; end
-
   def new
     @user = User.new
   end
@@ -30,12 +28,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-
-  # def destroy
-  #   @user.destroy
-  #   session[:user_id] = nil if @user == current_user
-  #   redirect_to root_path, notice: 'User successfully deleted.'
-  # end
 
   private
 
