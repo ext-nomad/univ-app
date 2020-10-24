@@ -14,5 +14,6 @@ br
           p
             = @course.description
         .card-action
-          = link_to  "Back", courses_path 
-          = link_to  "Enroll", course_path(@course) 
+          = link_to  "Back", courses_path
+          - unless current_user.courses.include?(@course)
+            = link_to  "Enroll", course_path(@course) 
