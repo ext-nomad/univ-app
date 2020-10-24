@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  post 'enroll', to: 'user_courses#create'
+  delete 'discard', to: 'user_courses#destroy'
+
   resources :courses, only: %i[index show]
   resources :users, except: %i[new show destroy]
 end

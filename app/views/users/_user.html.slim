@@ -2,5 +2,14 @@
       td= user.id
       td 
         strong= user.name
-      td  None
+      td
+        - if user.courses.any?
+          - user.user_courses.each do |enrollment|
+            li
+              = enrollment.course.name
+              - if enrollment.user == current_user
+                .right
+                  = link_to  "discard", discard_path(id: enrollment.id), method: :delete
+        - else
+          | None
       td= user.created_at.strftime('%m/%d/%Y')

@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2020_10_24_093746) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_courses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_user_courses_on_course_id"
+    t.index ["user_id"], name: "index_user_courses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -31,15 +40,6 @@ ActiveRecord::Schema.define(version: 2020_10_24_093746) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users_courses", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "course_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_users_courses_on_course_id"
-    t.index ["user_id"], name: "index_users_courses_on_user_id"
-  end
-
-  add_foreign_key "users_courses", "courses"
-  add_foreign_key "users_courses", "users"
+  add_foreign_key "user_courses", "courses"
+  add_foreign_key "user_courses", "users"
 end
