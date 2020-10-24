@@ -9,7 +9,7 @@
               = enrollment.course.name
               - if enrollment.user == current_user
                 .right
-                  = link_to  "discard", discard_path(id: enrollment.id), method: :delete
+                  = link_to  "[discard]", discard_path(id: enrollment.id), method: :delete
         - else
           | None
       td= user.created_at.strftime('%m/%d/%Y')

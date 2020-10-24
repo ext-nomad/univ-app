@@ -1,11 +1,13 @@
 class UserCoursesController < ApplicationController
   def create
-    enrollment = UserCourse.new
     course = Course.find(params[:id])
-    enrollment.course_id = course.id
-    enrollment.user_id = current_user.id
-
-    redirect_to courses_path(page: params[:page]), notice: "You have enrolled to the #{course.name}" if enrollment.save
+    if current_user.courses.include?(course)
+      flash[:alert] = 'Something went wrong'
+    else
+      UserCourse.create(course: course, user: current_user)
+      flash[:notice] = "You have enrolled to the #{course.name}"
+    end
+    redirect_to courses_path(page: params[:page])
   end
 
   def destroy
