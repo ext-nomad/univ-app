@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    redirect_to courses_path if logged_in?
     @user = User.new
   end
 

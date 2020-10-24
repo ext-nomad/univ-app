@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :logged_in_redirect, only: %i[new create]
+
   def new; end
 
   def create
@@ -17,5 +19,11 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_path, notice: 'Logged out'
+  end
+
+  private
+
+  def logged_in_redirect
+    redirect_to root_path, alert: 'You are already logged in' if logged_in?
   end
 end
